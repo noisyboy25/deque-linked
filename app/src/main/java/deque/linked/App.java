@@ -24,5 +24,17 @@ public class App {
         deque3.pushBack(4);
         deque3.pushFront(5);
         System.out.println("Deque 3: " + deque3);
+
+        var deque4 = new LinkedDeque();
+        deque4.pushFront(0);
+        deque4.pushBack(1);
+        deque4.pushBack(2);
+        deque4.pushFront(3);
+        deque4.pushBack(4);
+        deque4.pushFront(5);
+        System.out.println("Deque 4: " + deque4);
+        System.out.println("Deque 4 pop back: " + deque4.popBack());
+        System.out.println("Deque 4 pop front: " + deque4.popFront());
+        System.out.println("Deque 4: " + deque4);
     }
 }

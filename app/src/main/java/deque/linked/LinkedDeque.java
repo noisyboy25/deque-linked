@@ -1,5 +1,7 @@
 package deque.linked;
 
+import java.util.NoSuchElementException;
+
 public class LinkedDeque {
 
   Node front;
@@ -26,6 +28,28 @@ public class LinkedDeque {
     back = back.right;
   }
 
+  public int popFront() {
+    if (this.isEmpty()) {
+      throw new NoSuchElementException();
+    }
+
+    Node node = front;
+    front = node.right;
+    front.left = null;
+    return node.value;
+  }
+
+  public int popBack() {
+    if (this.isEmpty()) {
+      throw new NoSuchElementException();
+    }
+
+    Node node = back;
+    back = node.left;
+    back.right = null;
+    return node.value;
+  }
+
   public boolean isEmpty() {
     return front == null || back == null;
   }
@@ -42,7 +66,6 @@ public class LinkedDeque {
     result.append("[ ");
     for (Node node = front; node != null; node = node.right) {
       result.append(node.value + " ");
-      System.out.println(node.value);
     }
     result.append("]");
 
