@@ -34,8 +34,14 @@ public class LinkedDeque {
     }
 
     Node node = front;
-    front = node.right;
-    front.left = null;
+    front = front.right;
+
+    if (front == null) {
+      back = null;
+    } else {
+      front.left = null;
+    }
+
     return node.value;
   }
 
@@ -45,8 +51,14 @@ public class LinkedDeque {
     }
 
     Node node = back;
-    back = node.left;
-    back.right = null;
+    back = back.left;
+
+    if (back == null) {
+      front = null;
+    } else {
+      back.right = null;
+    }
+
     return node.value;
   }
 
